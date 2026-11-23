@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
+
+<!-- EDIT: page title and description. Search engines and link previews use these. -->
+<title>Jaemyung Yu · Research Scientist, NAVER AI Lab</title>
+<meta name="description" content="Jaemyung Yu is a Research Scientist at NAVER AI Lab working on efficient LLM training and reasoning. Open to research collaborations.">
+
+<!-- EDIT: your name and address, for link previews (X, LinkedIn, Slack, KakaoTalk …) and for the site name
+     shown in search results. Replace "Your Name" and username.github.io everywhere in this block (the address appears 3 times). -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Jaemyung Yu">
+<meta property="og:title" content="Jaemyung Yu · Research Scientist, NAVER AI Lab">
+<meta property="og:description" content="Jaemyung Yu is a Research Scientist at NAVER AI Lab working on efficient LLM training and reasoning. Open to research collaborations.">
+<meta property="og:url" content="https://jaemyungyu.github.io/">
+<meta property="og:image" content="https://jaemyungyu.github.io/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebSite", "name": "Jaemyung Yu", "url": "https://jaemyungyu.github.io/"}
+</script>
+
+<!-- EDIT: images. Keep the file names and replace the files, next to this file.
+       favicon.png            browser tab and search results   square, 192×192 (PNG; search engines don't take SVG)
+       apple-touch-icon.png   iPhone home screen               square, 180×180, no transparency
+       preview.png            link preview card                1200×630 -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!--
+  ════════════════════════════════════════════════════════════════════════════
+  RESEARCHER PROFILE  ·  one page file + three images, no build step, no dependencies
+  ════════════════════════════════════════════════════════════════════════════
+
+  HOW TO USE
+    1. Search this file for "EDIT:" and replace the placeholder text at each spot.
+    2. Replace favicon.png, apple-touch-icon.png and preview.png with your own images (same file names).
+    3. Upload everything to a GitHub repository named <username>.github.io.
+
+  WHAT YOU GET
+    On screen (phone, tablet, desktop: one interface, centered on wide screens)
+      name · role · short bio · latest news → contact icons → tabs → the selected tab's entries
+    In print (Ctrl/Cmd + P → Save as PDF)
+      a classic CV: full bio, section titles, dates in a left column. News, tags and buttons are left out.
+
+  ENTRY FORMAT   every list item is  <div class="entry">  with a "when" and a "what" part.
+    Inside "what", the first line is required; delete any optional line you don't need.
+      Paper     title · authors · [tldr] · [tags] · [buttons]
+      Project   title · [desc] · [person] · [tags] · [buttons]
+      Career    <strong>Role</strong>, Place · [desc] · [person]
+      Honors    plain text
+    desc/person are printed in the CV; tldr/tags/buttons are screen-only.
+
+  OPTIONAL PARTS   (each has a note next to it in the HTML)
+    CV icon         off by default   → remove the two CV-ICON marker lines
+    Projects tab    off by default   → <body class="with-projects">
+    News list       delete the whole <details class="news"> block to hide it
+
+  ADDING A TAB   search for "TAB LIST": add one line at each of the 4 places in the CSS and a radio + label in the HTML,
+                 then add a <section id="…" data-tab="name"> with entries. Tabs follow the order of the labels.
+
+  JavaScript is optional: tabs, the sticky tab bar and the news list are plain HTML + CSS.
+-->
+
+<style>
+  /* ══ 1. Colors ═════════════════════════════════════════════════════════════ */
+  :root {
+    --text: #1f2328;    /* main text */
+    --muted: #59616b;   /* secondary text */
+    --faint: #6a727b;   /* dates, captions */
+    --line: #e5e7ea;    /* dividers */
+    --bg: #ffffff;
+    --link: #0b57d0;
+    --chip: #f3f4f6;    /* icon circles, buttons, badges */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e4e6e9;
+      --muted: #a4acb5;
+      --faint: #7f8790;
+      --line: #2a2f35;
+      --bg: #121417;
+      --link: #8ab4f8;
+      --chip: #1d2024;
+    }
+  }
+
+  /* ══ 2. Shared by screen and print ═════════════════════════════════════════ */
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
+  }
+  main { margin: 0 auto; }
+  a { color: var(--link); text-decoration: none; }
+  a:active { opacity: 0.6; }
+  @media (hover: hover) {
+    a:hover { text-decoration: underline; text-underline-offset: 2px; }
+  }
+
+  h1 { line-height: 1.2; letter-spacing: -0.015em; font-weight: 650; }
+  h2 { font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; }
+  p { margin: 0 0 14px; }
+  p, .title, .tldr, .desc { text-wrap: pretty; }
+  .contacts, .news ul { list-style: none; margin: 0; padding: 0; }
+
+  .role, .authors, .desc, .person { color: var(--muted); }
+  .authors, .desc, .person { font-size: 0.95rem; }
+  .authors b { color: var(--text); font-weight: 600; }      /* your own name in an author list */
+  .title { display: block; font-weight: 600; line-height: 1.4; color: var(--text); }
+  .what strong { font-weight: 600; }
+  .when { color: var(--faint); font-variant-numeric: tabular-nums; }
+  .work .when { color: var(--muted); }
+  .award { font-weight: 600; }                              /* Spotlight, Oral, … */
+  .person a { color: inherit; }
+  .footnote { color: var(--faint); font-size: 0.88rem; }
+  footer { color: var(--faint); font-size: 0.85rem; }
+
+  .email-text::after { content: attr(data-user) "@" attr(data-domain); }   /* address joined by CSS, see the email note in the HTML */
+  body:not(.with-projects) .opt-projects { display: none !important; }      /* optional Projects tab */
+
+  /* ══ 3. Screen: app-style profile ══════════════════════════════════════════ */
+  @media screen {
+    body { font-size: 16px; }
+    main {
+      display: flex; flex-direction: column; max-width: 640px;
+      padding: 28px max(18px, env(safe-area-inset-right)) 64px max(18px, env(safe-area-inset-left));
+    }
+    .print-label, #about p { display: none; }
+
+    /* Order on screen. (The HTML order is the order of the printed CV.) */
+    header { display: contents; }
+    .profile { order: 0; }
+    #about { order: 1; }
+    .contacts { order: 2; }
+    .tabs { order: 3; }
+    #publications { order: 4; }
+    #projects { order: 5; }
+    #experience { order: 6; }
+    #education { order: 7; }
+    #honors { order: 8; }
+    footer { order: 9; }
+
+    /* ── Profile ── */
+    h1 { font-size: 1.65rem; margin: 0 0 2px; }
+    .role { font-size: 0.95rem; line-height: 1.45; margin: 0; }
+    #about { margin-top: 14px; font-size: 0.97rem; line-height: 1.55; }
+    #about .bio-short { display: block; margin: 0; }
+
+    /* ── News: the newest item, opening into a short list ── */
+    .news { margin-top: 10px; font-size: 0.92rem; line-height: 1.45; }
+    .news summary, .news li {
+      display: grid; grid-template-columns: 66px minmax(0, 1fr); column-gap: 8px; align-items: baseline; padding: 4px 0;
+    }
+    .news summary { grid-template-columns: 66px minmax(0, 1fr) auto; list-style: none; cursor: pointer; }
+    .news summary::-webkit-details-marker { display: none; }
+    .news-badge {
+      justify-self: start; padding: 2px 8px; border-radius: 999px; background: var(--chip); color: var(--muted);
+      font-size: 0.75rem; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .news-date { color: var(--faint); font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .news a { color: inherit; text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+    .news-toggle { color: var(--faint); font-size: 0.8rem; white-space: nowrap; }
+    .news-toggle::after {                                   /* small chevron */
+      content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 6px;
+      border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+      transform: translateY(-3px) rotate(45deg);
+    }
+    .news[open] .news-toggle::after { transform: translateY(1px) rotate(-135deg); }
+    /* Closed: badge + "N more".  Open: the badge gives way to the item's date so all dates share one column. */
+    .news .if-open, .news[open] .if-closed, summary .news-date, .news[open] .news-badge { display: none; }
+    .news[open] .if-open, .news[open] summary .news-date { display: inline; }
+
+    /* ── Contact icons ── */
+    .contacts { display: flex; justify-content: space-between; gap: 6px; margin: 18px -2px 0; font-size: 0.75rem; }
+    .contacts li { flex: 0 1 66px; min-width: 0; }
+    .contacts a { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text); }
+    /* The inner circle takes its height from its width; the ring just wraps it.
+       (Don't use height: 100% inside an aspect-ratio box here: Safari sizes it differently.) */
+    .ring { display: block; width: 100%; max-width: 62px; padding: 3px; border-radius: 50%; border: 1.5px solid var(--line); }
+    .primary .ring { border-color: var(--text); }
+    .ico { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; background: var(--chip); }
+    .ico svg { width: 24px; height: 24px; }
+    .icon-label { display: block; line-height: 1.2; }
+
+    /* ── Tabs: CSS only (hidden radio buttons + labels) ── */
+    .tab-input { position: fixed; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .tabs {
+      display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);   /* equal widths for any number of tabs */
+      position: sticky; top: 0; z-index: 10;                                      /* stays on top while scrolling */
+      margin: 22px -18px 0; padding-top: env(safe-area-inset-top);
+      background: var(--bg); border-bottom: 1px solid var(--line);
+    }
+    .tabs label {
+      position: relative; display: flex; align-items: center; justify-content: center; height: 48px;
+      color: var(--faint); font-size: 0.95rem; font-weight: 550; cursor: pointer; user-select: none; -webkit-user-select: none;
+    }
+    /* TAB LIST 1/4: the selected tab's label */
+    #tab-papers:checked   ~ .tabs [data-tab="papers"],
+    #tab-projects:checked ~ .tabs [data-tab="projects"],
+    #tab-career:checked   ~ .tabs [data-tab="career"],
+    #tab-honors:checked   ~ .tabs [data-tab="honors"] { color: var(--text); font-weight: 650; }
+    /* TAB LIST 2/4: the bar under the selected tab */
+    #tab-papers:checked   ~ .tabs [data-tab="papers"]::after,
+    #tab-projects:checked ~ .tabs [data-tab="projects"]::after,
+    #tab-career:checked   ~ .tabs [data-tab="career"]::after,
+    #tab-honors:checked   ~ .tabs [data-tab="honors"]::after {
+      content: ""; position: absolute; left: 22%; right: 22%; bottom: -1px; height: 2px; border-radius: 2px; background: var(--text);
+    }
+    /* TAB LIST 3/4: keyboard focus ring */
+    #tab-papers:focus-visible   ~ .tabs [data-tab="papers"],
+    #tab-projects:focus-visible ~ .tabs [data-tab="projects"],
+    #tab-career:focus-visible   ~ .tabs [data-tab="career"],
+    #tab-honors:focus-visible   ~ .tabs [data-tab="honors"] { outline: 2px solid var(--link); outline-offset: -4px; border-radius: 8px; }
+
+    /* Only the selected tab's sections are shown */
+    section[data-tab] { display: none; margin-top: 8px; }
+    /* TAB LIST 4/4: which sections each tab shows */
+    #tab-papers:checked   ~ section[data-tab="papers"],
+    #tab-projects:checked ~ section[data-tab="projects"],
+    #tab-career:checked   ~ section[data-tab="career"],
+    #tab-honors:checked   ~ section[data-tab="honors"] { display: block; }
+    main.switched section[data-tab] { animation: tab-in 0.18s ease-out; }       /* fade in after a tab change */
+    @keyframes tab-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* Section titles are hidden (the tab names them), except the two groups inside Career */
+    h2 { display: none; }
+    #experience h2, #education h2 { display: block; margin: 18px 0 0; font-size: 0.75rem; color: var(--faint); }
+    #education { margin-top: 0; }
+    #education h2 { margin-top: 22px; }
+
+    /* ── Entries: one row each, divided by lines ── */
+    .entry { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .entry:last-of-type { border-bottom: 0; }
+    .work { padding: 16px 0; }                              /* papers and projects get a little more room */
+    .when { font-size: 0.85rem; }
+    .award::before { content: " · "; font-weight: 400; }
+    .title { margin: 2px 0 3px; font-size: 1.02rem; }
+    /* Long author lists: one line plus a "+N" count; click or tap to show everyone */
+    .authors.clamp { white-space: nowrap; overflow: hidden; cursor: pointer; }
+    .authors.clamp[data-all="1"] { cursor: auto; }                  /* everyone already fits */
+    .authors.clamp .off, .authors:not(.clamp) .au-gap, .authors:not(.clamp) .au-more { display: none; }
+    .au-more {
+      margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: var(--chip);
+      color: var(--muted); font-size: 0.78rem; font-weight: 600;
+    }
+    .tldr { margin-top: 4px; font-size: 0.95rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-top: 6px; color: var(--muted); font-size: 0.85rem; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .buttons a {
+      display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 999px;
+      background: var(--chip); color: var(--text); font-size: 0.85rem; font-weight: 550;
+    }
+    .person a { text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+    .footnote { margin-top: 10px; }
+    footer { margin-top: auto; padding-top: 40px; text-align: center; }
+  }
+
+  /* Wide screens: the same interface in a centered column */
+  @media screen and (min-width: 601px) {
+    main { padding-top: 56px; padding-bottom: 96px; }
+    .tabs { margin-left: 0; margin-right: 0; }
+  }
+  /* Very narrow screens (older fold cover displays, about 280px) */
+  @media screen and (max-width: 300px) {
+    main { padding-left: 14px; padding-right: 14px; }
+    .tabs { margin-left: -14px; margin-right: -14px; }
+    .tabs label { font-size: 0.88rem; }
+    .contacts { gap: 2px; }
+  }
+  /* Mouse hover */
+  @media screen and (hover: hover) {
+    .contacts a:hover, .buttons a:hover { text-decoration: none; }
+    .contacts a:hover .ring { border-color: var(--text); }
+    .buttons a:hover { background: var(--line); }
+    .tabs label:hover { color: var(--text); }
+    a.title:hover { color: var(--link); }                   /* only if you make a title a link */
+  }
+  @media (prefers-reduced-motion: reduce) {
+    main.switched section[data-tab] { animation: none; }
+  }
+
+  /* ══ 4. Print: classic CV ══════════════════════════════════════════════════ */
+  @media print {
+    :root { --text: #000; --muted: #333; --faint: #555; --line: #bbb; --bg: #fff; --link: #000; }
+    @page { margin: 16mm 18mm; }
+    html { font-size: 10.5pt; }                             /* every rem size below scales from this */
+    body { line-height: 1.45; }
+    main { min-height: 0 !important; }
+
+    /* Screen-only parts */
+    .tab-input, .tabs, .news, .bio-short, .ring, .icon-label, .tldr, .tags, .buttons, .no-print { display: none !important; }
+    .authors .au-gap, .authors .au-more { display: none !important; }   /* the printed CV always lists everyone */
+    .authors .au.off { display: inline !important; }
+
+    h1 { font-size: 2rem; margin: 0 0 6px; }
+    .role { margin: 0 0 18px; }
+    .contacts { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 0.95rem; }
+
+    section { margin-top: 22px; }
+    h2 {
+      font-size: 0.78rem; color: var(--muted); margin: 0 0 18px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--line); break-after: avoid;
+    }
+    .entry { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 24px; margin-bottom: 18px; break-inside: avoid; }
+    .work { margin-bottom: 24px; }
+    .when { font-size: 0.9rem; padding-top: 2px; }
+    .award { display: block; }
+    .footnote { margin-top: 8px; }
+    footer { margin-top: 24px; break-before: avoid; }      /* never alone on a new page */
+  }
+</style>
+</head>
+
+<!-- OPTIONAL Projects tab: off by default. To turn it on, change the next line to  <body class="with-projects">  -->
+<body>
+<main>
+
+  <!-- ═══ PROFILE ═══════════════════════════════════════════════════════════ -->
+  <header>
+    <!-- EDIT: name and role -->
+    <div class="profile">
+      <h1>Jaemyung Yu</h1>
+      <p class="role">Research Scientist, NAVER AI Lab</p>
+    </div>
+
+    <!-- EDIT: contact icons. Change each href. To remove an icon, delete its whole <li>…</li>.
+         icon-label is the word under the icon; print-label is what the printed CV shows instead of the icon
+         (a short address such as github.com/username reads well on paper). -->
+    <ul class="contacts">
+      <!-- Email is stored in two parts so that bots reading the page source can't harvest it:
+           the part before the @ goes in data-user, the part after it in data-domain. -->
+      <li class="primary"><a class="email" href="#">
+        <span class="ring"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></span></span>
+        <span class="icon-label">Email</span><span class="print-label email-text" data-user="jaemyung.u" data-domain="gmail.com"></span></a></li>
+      <!-- OPTIONAL CV icon: off by default. To show it, upload cv.pdf next to this file,
+           then delete the two marker lines "CV-ICON-START" and "CV-ICON-END" below. -->
+      <!-- CV-ICON-START
+      <li class="no-print"><a href="cv.pdf">
+        <span class="ring"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span></span>
+        <span class="icon-label">CV</span></a></li>
+      CV-ICON-END -->
+      <li><a href="https://scholar.google.com/citations?user=PYXTN_QAAAAJ">
+        <span class="ring"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4.5l10 5-10 5z"/><path d="M6 11.5v4.5c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5M22 9.5v5"/></svg></span></span>
+        <span class="icon-label">Scholar</span><span class="print-label">Google Scholar</span></a></li>
+      <li><a href="https://github.com/jaemyung-u">
+        <span class="ring"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 5l-3 14"/></svg></span></span>
+        <span class="icon-label">GitHub</span><span class="print-label">github.com/jaemyung-u</span></a></li>
+      <li><a href="https://www.linkedin.com/in/jaemyung-u">
+        <span class="ring"><span class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7M3 13h18"/></svg></span></span>
+        <span class="icon-label">LinkedIn</span><span class="print-label">linkedin.com/in/jaemyung-u</span></a></li>
+    </ul>
+  </header>
+
+  <!-- ═══ TABS ══════════════════════════════════════════════════════════════
+       TAB LIST (HTML): one radio button and one label per tab, in the order they appear.
+       "checked" marks the tab that is open first. -->
+  <input class="tab-input" type="radio" name="tab" id="tab-papers" checked>
+  <input class="tab-input opt-projects" type="radio" name="tab" id="tab-projects">
+  <input class="tab-input" type="radio" name="tab" id="tab-career">
+  <input class="tab-input" type="radio" name="tab" id="tab-honors">
+  <nav class="tabs" aria-label="Sections">
+    <label for="tab-papers" data-tab="papers">Papers</label>
+    <label class="opt-projects" for="tab-projects" data-tab="projects">Projects</label>
+    <label for="tab-career" data-tab="career">Career</label>
+    <label for="tab-honors" data-tab="honors">Honors</label>
+  </nav>
+
+  <!-- ═══ ABOUT ═════════════════════════════════════════════════════════════ -->
+  <section id="about">
+    <h2>About</h2>
+
+    <!-- EDIT: short bio, shown on screen (2–3 lines reads best) -->
+    <p class="bio-short">I work on efficient LLM training and reasoning. Open to research collaborations.</p>
+
+    <!-- EDIT: news (screen only). The first line is always visible with a "Latest" badge; clicking it opens the rest.
+         Keep it to the big things from the last 2–3 years, newest first.
+         - Update the "4 more" count when you add or remove items.
+         - To link an item, wrap its text: <a href="https://...">text</a>
+         - To hide news completely, delete this whole <details>…</details> block. -->
+    <details class="news">
+      <summary>
+        <span class="news-badge">Latest</span><span class="news-date">Sep 2026</span>
+        <span>FOAM accepted to NeurIPS 2026</span>
+        <span class="news-toggle"><span class="if-closed">1 more</span><span class="if-open">Less</span></span>
+      </summary>
+      <ul>
+        <li><span class="news-date">Sep 2025</span><span>Joined NAVER AI Lab as a Research Scientist</span></li>
+      </ul>
+    </details>
+
+    <!-- EDIT: full bio, shown only in the printed CV -->
+    <p>I am a Research Scientist at NAVER AI Lab. My research focuses on efficient training and reasoning in large language models, with an emphasis on optimization methods. I received my Ph.D. in Electrical Engineering from KAIST in 2025, advised by Prof. Junmo Kim. I welcome research collaborations in these areas.</p>
+  </section>
+
+  <!-- ═══ PAPERS ════════════════════════════════════════════════════════════
+       EDIT: one <div class="entry work"> per paper.
+         when     venue and year; add <span class="award">Spotlight</span> for an award
+         title    plain text, or a link: <a class="title" href="https://...">Title</a>
+         authors  put your own name in <b>…</b>; long lists collapse to one line and open on click
+         tldr     optional: one or two sentences
+         tags     optional: one <span> per research area
+         buttons  optional: arXiv, Code, Project, … -->
+  <section id="publications" data-tab="papers">
+    <h2>Publications</h2>
+
+    <div class="entry work">
+      <div class="when">NeurIPS 2026</div>
+      <div class="what">
+        <div class="title">Factored One-sided Adam-Moment for Practical and Scalable SOAP</div>
+        <div class="authors"><b>Jaemyung Yu</b>, Byeongho Heo, Sangdoo Yun, Dongyoon Han</div>
+        <div class="tldr">FOAM is a lighter variant of the SOAP optimizer. It matches SOAP and Muon on LLM pre-training from 124M to 1.56B parameters while keeping half of SOAP&#x27;s optimizer state.</div>
+        <div class="tags"><span>#optimization</span><span>#efficient-training</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2611.16905">arXiv</a><a href="https://github.com/naver-ai/foam">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">arXiv 2026</div>
+      <div class="what">
+        <div class="title">No Channels Left Behind: Understanding Diffusion Acceleration through Residual Gates</div>
+        <div class="authors">Junha Park, <b>Jaemyung Yu</b>, Jaehui Hwang, Jong-Seok Lee, Dongyoon Han</div>
+        <div class="tags"><span>#diffusion-models</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2610.40914">arXiv</a><a href="https://github.com/naver-ai/radialobj">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">arXiv 2026</div>
+      <div class="what">
+        <div class="title">Omni-Modal LLMs Know More Than They Say</div>
+        <div class="authors">Na Min An, Taekyung Kim, <b>Jaemyung Yu</b>, Hyunjung Shim, Dongyoon Han</div>
+        <div class="tags"><span>#multimodal-llm</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2610.16135">arXiv</a><a href="https://github.com/naver-ai/OmniLLM">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">ICML 2026<span class="award">Spotlight</span></div>
+      <div class="what">
+        <div class="title">Stable-GFlowNet: Toward Diverse and Robust LLM Red-Teaming via Contrastive Trajectory Balance</div>
+        <div class="authors">Minchan Kwon, Sunghyun Baek, Minseo Kim, <b>Jaemyung Yu</b>, Dongyoon Han, Junmo Kim</div>
+        <div class="tags"><span>#red-teaming</span><span>#gflownet</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2605.00553">arXiv</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">CVPR 2026</div>
+      <div class="what">
+        <div class="title">MuCo: Multi-turn Contrastive Learning for Multimodal Embedding Model</div>
+        <div class="authors">Geonmo Gu, Byeongho Heo, <b>Jaemyung Yu</b>, Jaehui Hwang, Taekyung Kim, Sangmin Lee, HeeJae Jun, Yoohoon Kang, Sangdoo Yun, Dongyoon Han</div>
+        <div class="tags"><span>#multimodal-embedding</span><span>#contrastive-learning</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2602.06393">arXiv</a><a href="https://github.com/naver-ai/muco">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">CVPR 2026</div>
+      <div class="what">
+        <div class="title">PRISM: Video Dataset Condensation with Progressive Refinement and Insertion for Sparse Motion</div>
+        <div class="authors">Jaehyun Choi, Jiwan Hur, Gyojin Han, <b>Jaemyung Yu</b>, Junmo Kim</div>
+        <div class="tags"><span>#dataset-condensation</span><span>#video</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2505.22564">arXiv</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">ICLR 2026</div>
+      <div class="what">
+        <div class="title">IMSE: Intrinsic Mixture of Spectral Experts Fine-tuning for Test-Time Adaptation</div>
+        <div class="authors">Sunghyun Baek, <b>Jaemyung Yu</b>, Seunghee Koh, Minsu Kim, Hyeonseong Jeon, Junmo Kim</div>
+        <div class="tags"><span>#test-time-adaptation</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2603.07926">arXiv</a><a href="https://github.com/baek85/IMSE">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">ICLR 2026</div>
+      <div class="what">
+        <div class="title">Inlier-Centric Post-Training Quantization for Object Detection Models</div>
+        <div class="authors">Minsu Kim, Dongyeun Lee, <b>Jaemyung Yu</b>, Jiwan Hur, Giseop Kim, Junmo Kim</div>
+        <div class="tags"><span>#quantization</span><span>#object-detection</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2602.03472">arXiv</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">NeurIPS 2025</div>
+      <div class="what">
+        <div class="title">Frequency-Aware Token Reduction for Efficient Vision Transformer</div>
+        <div class="authors">Dong-Jae Lee, Jiwan Hur, Jaehyun Choi, <b>Jaemyung Yu</b>, Junmo Kim</div>
+        <div class="tags"><span>#vision-transformer</span><span>#token-reduction</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2511.21477">arXiv</a><a href="https://github.com/jhtwosun/frequency-aware-token-pruning">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">Interspeech 2025</div>
+      <div class="what">
+        <div class="title">FairASR: Fair Audio Contrastive Learning for Automatic Speech Recognition</div>
+        <div class="authors">Jongsuk Kim, <b>Jaemyung Yu</b>, Minchan Kwon, Junmo Kim</div>
+        <div class="tags"><span>#speech-recognition</span><span>#fairness</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2506.10747">arXiv</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">NeurIPS 2024</div>
+      <div class="what">
+        <div class="title">Self-supervised Transformation Learning for Equivariant Representations</div>
+        <div class="authors"><b>Jaemyung Yu</b>, Jaehyun Choi, Dong-Jae Lee, Hyeong Gwon Hong, Junmo Kim</div>
+        <div class="tags"><span>#self-supervised-learning</span><span>#equivariance</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2501.08712">arXiv</a><a href="https://jaemyung-u.github.io/stl/">Project</a><a href="https://github.com/jaemyung-u/stl">Code</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">ICCV 2021</div>
+      <div class="what">
+        <div class="title">Camera Distortion-aware 3D Human Pose Estimation in Video with Optimization-based Meta-Learning</div>
+        <div class="authors">Hanbyel Cho, Yooshin Cho, <b>Jaemyung Yu</b>, Junmo Kim</div>
+        <div class="tags"><span>#3d-human-pose</span><span>#meta-learning</span></div>
+        <div class="buttons"><a href="https://arxiv.org/abs/2111.15056">arXiv</a><a href="https://github.com/hanbyel0105/CamDistHumanPose3D">Code</a></div>
+      </div>
+    </div>
+
+    <!-- EDIT: footnote under the list (delete it if you don't need one) -->
+    <p class="footnote">Full list on <a href="https://scholar.google.com/citations?user=PYXTN_QAAAAJ">Google Scholar</a>.</p>
+  </section>
+
+  <!-- ═══ PROJECTS (optional tab: shown only with <body class="with-projects">) ═══
+       EDIT: one <div class="entry work"> per project.
+         title    project name
+         desc     optional: what it is and what you built
+         person   optional: your role, collaborators (names can be links)
+         tags     optional
+         buttons  optional: GitHub, Demo, Docs, … -->
+  <section id="projects" class="opt-projects" data-tab="projects">
+    <h2>Projects</h2>
+
+    <!-- No projects yet. When you turn this tab on, add entries here in this form:
+
+    <div class="entry work">
+      <div class="when">2025 – Present</div>
+      <div class="what">
+        <div class="title">Project Name</div>
+        <div class="desc">One or two sentences on what the project is and what you built.</div>
+        <div class="person">Role: Lead developer · with <a href="https://example.com/">Collaborator Name</a></div>
+        <div class="tags"><span>#open-source</span><span>#evaluation</span></div>
+        <div class="buttons"><a href="#">GitHub</a><a href="#">Demo</a><a href="#">Docs</a></div>
+      </div>
+    </div>
+
+    <div class="entry work">
+      <div class="when">2024</div>
+      <div class="what">
+        <div class="title">Another Project Name</div>
+        <div class="desc">A short description of the second project.</div>
+        <div class="buttons"><a href="#">GitHub</a></div>
+      </div>
+    </div>
+    -->
+  </section>
+
+  <!-- ═══ CAREER (Experience + Education share one tab) ═══════════════════════
+       EDIT: one <div class="entry"> per position or degree.
+         first line   <strong>Role or degree</strong>, Place
+         desc         optional: a short description, e.g. a thesis title
+         person       optional: advisor / manager / mentor; the name can be a link or plain text -->
+  <section id="experience" data-tab="career">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="when">2025 – Present</div>
+      <div class="what">
+        <strong>Research Scientist</strong>, NAVER AI Lab
+        <div class="person">Managers: <a href="https://sangdooyun.github.io/">Sangdoo Yun</a>, <a href="https://dongyoonhan.github.io">Dongyoon Han</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" data-tab="career">
+    <h2>Education</h2>
+
+    <div class="entry">
+      <div class="when">2019 – 2025</div>
+      <div class="what">
+        <strong>Ph.D. in Electrical Engineering</strong>, KAIST
+        <div class="person">Advisor: <a href="https://scholar.google.com/citations?user=GdQtWNQAAAAJ">Prof. Junmo Kim</a></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2017 – 2019</div>
+      <div class="what">
+        <strong>M.S. in Electrical Engineering</strong>, KAIST
+        <div class="person">Advisor: <a href="https://scholar.google.com/citations?user=GdQtWNQAAAAJ">Prof. Junmo Kim</a></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2013 – 2017</div>
+      <div class="what">
+        <strong>B.S. in Computer Science and Mathematics</strong> (double major), KAIST
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HONORS ════════════════════════════════════════════════════════════
+       EDIT: one <div class="entry"> per item: a year or label, then plain text. -->
+  <section id="honors" data-tab="honors">
+    <h2>Honors &amp; Service</h2>
+
+    <div class="entry">
+      <div class="when">2026</div>
+      <div class="what">ICML 2026 Gold Reviewer</div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2025</div>
+      <div class="what">NeurIPS 2025 Top Reviewer</div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Reviewer</div>
+      <div class="what">NeurIPS, ICML, ICLR, CVPR, ECCV</div>
+    </div>
+  </section>
+
+  <!-- EDIT: update the date when you change the page -->
+  <footer>Last updated November 2026</footer>
+
+</main>
+
+<script>
+/* Optional enhancements. Tabs, the sticky tab bar and the news list work without this script. */
+(function () {
+  var each = function (list, fn) { Array.prototype.forEach.call(list, fn); };
+
+  /* ── 1. Tabs: start each tab at its top, and remember the tab in the address (…/#career) ── */
+  try {
+    var main = document.querySelector('main');
+    var tabBar = document.querySelector('.tabs');
+    var contacts = document.querySelector('.contacts');
+    var radios = Array.prototype.filter.call(document.querySelectorAll('.tab-input'), function (r) {
+      return getComputedStyle(r).display !== 'none';                 /* skips tabs that are switched off */
+    });
+    var names = radios.map(function (r) { return r.id.replace('tab-', ''); });
+
+    /* Where the tab bar sits before it sticks. (A stuck element reports a moving offsetTop, so measure from the element above it.) */
+    var tabBarTop = function () {
+      return contacts.offsetTop + contacts.offsetHeight + (parseFloat(getComputedStyle(tabBar).marginTop) || 0);
+    };
+    /* Keep the page tall enough that switching to a short tab doesn't make it jump. */
+    var keepPageTall = function () { main.style.minHeight = (tabBarTop() + window.innerHeight) + 'px'; };
+    var openTabFromAddress = function () {
+      var i = names.indexOf(location.hash.slice(1));
+      if (i >= 0) radios[i].checked = true;
+    };
+
+    each(radios, function (radio, i) {
+      radio.addEventListener('change', function () {
+        main.classList.add('switched');                               /* enables the fade-in */
+        var top = tabBarTop();
+        if (window.scrollY > top) window.scrollTo(0, top);
+        try { history.replaceState(null, '', '#' + names[i]); } catch (e) {}
+      });
+    });
+    window.addEventListener('hashchange', openTabFromAddress);
+    window.addEventListener('resize', keepPageTall);
+    openTabFromAddress();
+    keepPageTall();
+  } catch (e) {}
+
+  /* ── 2. Email: join the two parts only when the icon is used (and while printing, so the PDF link works) ── */
+  try {
+    var email = document.querySelector('a.email');
+    var parts = email.querySelector('.email-text');
+    var address = function () { return parts.getAttribute('data-user') + '@' + parts.getAttribute('data-domain'); };
+    email.addEventListener('click', function (e) { e.preventDefault(); window.location.href = 'mailto:' + address(); });
+    window.addEventListener('beforeprint', function () { email.setAttribute('href', 'mailto:' + address()); });
+    window.addEventListener('afterprint', function () { email.setAttribute('href', '#'); });
+  } catch (e) {}
+
+  /* ── 3. Author lists: one line plus "+N"; click or tap to show everyone ──
+        The number depends on the screen width, so it is counted here and recounted when the size changes.
+        Your own name (the one in <b>) is always kept visible. */
+  try {
+    var fit = function (el) {
+      if (!el.classList.contains('clamp')) return;
+      var items = el.querySelectorAll('.au'), gap = el.querySelector('.au-gap'), more = el.querySelector('.au-more');
+      each(items, function (it) { it.classList.remove('off'); });
+      gap.classList.add('off'); more.classList.remove('off'); more.textContent = '+99';
+      var room = el.clientWidth;
+      if (!room) return;                                              /* inside a hidden tab: counted when it is shown */
+      var widths = Array.prototype.map.call(items, function (it) { return it.getBoundingClientRect().width; });
+      var total = widths.reduce(function (a, b) { return a + b; }, 0);
+      if (total <= room) { more.classList.add('off'); el.dataset.all = '1'; return; }   /* everyone fits */
+      el.dataset.all = '';
+      gap.classList.remove('off');
+      var reserve = more.getBoundingClientRect().width + 8, gapW = gap.getBoundingClientRect().width;
+      gap.classList.add('off');
+      var me = -1; each(items, function (it, i) { if (it.querySelector('b')) me = i; });
+      var count = function (limit) { var used = 0, k = 0; while (k < widths.length && used + widths[k] <= limit) used += widths[k++]; return k; };
+      var k = Math.max(1, count(room - reserve)), keepMe = false;
+      if (me >= k) {                                                  /* own name would be hidden: make room for it */
+        var k2 = count(room - reserve - gapW - widths[me]);
+        if (k2 >= 1) { k = Math.min(k2, me); keepMe = true; }
+      }
+      each(items, function (it, i) { if (i >= k && !(keepMe && i === me)) it.classList.add('off'); });
+      if (keepMe) { items[me].parentNode.insertBefore(gap, items[me]); gap.classList.toggle('off', me === k); }
+      more.textContent = '+' + (items.length - k - (keepMe ? 1 : 0));
+    };
+    each(document.querySelectorAll('.authors'), function (el) {
+      var names = el.innerHTML.split(', ');
+      el.innerHTML = names.map(function (n, i) { return '<span class="au">' + (i ? ', ' : '') + n + '</span>'; }).join('') +
+        '<span class="au-gap off">, …</span><span class="au-more"></span>';
+      el.classList.add('clamp');
+      el.addEventListener('click', function () { if (el.dataset.all === '1') return; el.classList.toggle('clamp'); fit(el); });
+      fit(el);
+      if (window.ResizeObserver) new ResizeObserver(function () { fit(el); }).observe(el);
+    });
+    window.addEventListener('resize', function () { each(document.querySelectorAll('.authors'), fit); });
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
